@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 namespace RecipesApp.Models
 {
-    public class Product
+    public class Recipe
     {
         public long? RecipeID { get; set; }
-        public string RecipeOrigin { get; set; } = String.Empty;
+        public string RecipeCategory { get; set; } = String.Empty;
         public string RecipeName { get; set; } = String.Empty;
         public string RecipeCreator { get; set; } = String.Empty;
         [Column(TypeName = "decimal(3, 1)")]
