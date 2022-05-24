@@ -14,5 +14,6 @@ namespace RecipesApp.Models
         public string RecipeInstructions { get; set; } = String.Empty;
 
         public User? User { get; set; }
+        public List<Discussion>? Discussions { get; set; }
     }
 }

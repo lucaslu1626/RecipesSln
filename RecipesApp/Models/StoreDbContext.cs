@@ -21,6 +21,11 @@ namespace RecipesApp.Models
                 .WithMany(b => b.Discussions)
                 .HasForeignKey(p => p.DiscussionUser)
                 .HasPrincipalKey(b => b.UserName);
+            modelBuilder.Entity<Discussion>()
+                .HasOne(p => p.Recipe)
+                .WithMany(b => b.Discussions)
+                .HasForeignKey(p => p.DiscussionRecipe)
+                .HasPrincipalKey(b => b.RecipeName);
         }
     }
 }
