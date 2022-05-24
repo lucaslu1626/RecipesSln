@@ -3,7 +3,7 @@ namespace RecipesApp.Models
 {
     public class Recipe
     {
-        public long? RecipeID { get; set; }
+        public long RecipeID { get; set; }
         public string RecipeCategory { get; set; } = String.Empty;
         public string RecipeName { get; set; } = String.Empty;
         public string RecipeCreator { get; set; } = String.Empty;
@@ -12,5 +12,7 @@ namespace RecipesApp.Models
         public string RecipeIngredients { get; set; } = String.Empty;
        
         public string RecipeInstructions { get; set; } = String.Empty;
+
+        public User? User { get; set; }
     }
 }
