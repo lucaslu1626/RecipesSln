@@ -19,13 +19,13 @@ namespace RecipesApp.Models
                 context.Users.AddRange(
                     new User
                     {
-                        UserID = 1,
+                        //UserID = 1,
                         UserName = "user1",
                         UserPW = "Password123!"
                     },
                     new User
                     {
-                        UserID = 2,
+                        //UserID = 2,
                         UserName = "user2",
                         UserPW = "Password456?"
                     }
@@ -38,7 +38,7 @@ namespace RecipesApp.Models
                 context.Recipes.AddRange(
                     new Recipe
                     {
-                        RecipeID = 1,
+                        //RecipeID = 1,
                         RecipeCategory = "American",
                         RecipeName = "Golden Apple Pie",
                         RecipeCreator = "user1",
@@ -63,7 +63,7 @@ namespace RecipesApp.Models
                     },
                     new Recipe
                     {
-                        RecipeID = 2, 
+                        //RecipeID = 2, 
                         RecipeCategory = "Mexican", 
                         RecipeName = "Black bean and corn Nachos", 
                         RecipeCreator = "user1", 
@@ -96,7 +96,7 @@ namespace RecipesApp.Models
                     },
                     new Recipe
                     {
-                        RecipeID = 3,
+                        //RecipeID = 3,
                         RecipeCategory = "Hawaiian",
                         RecipeName = "Ham and Cheese Sliders",
                         RecipeCreator = "user1",
@@ -120,7 +120,7 @@ namespace RecipesApp.Models
                     },
                     new Recipe
                     {
-                        RecipeID = 4,
+                        //RecipeID = 4,
                         RecipeCategory = "Chinese",
                         RecipeName = "Pork Dumplings",
                         RecipeCreator = "user1",
@@ -142,7 +142,7 @@ namespace RecipesApp.Models
                     },
                     new Recipe
                     {
-                        RecipeID = 5,
+                        //RecipeID = 5,
                         RecipeCategory = "Italian",
                         RecipeName = "Italian Sausage Lasagna",
                         RecipeCreator = "user1",
@@ -168,7 +168,7 @@ namespace RecipesApp.Models
                     },
                     new Recipe
                     {
-                        RecipeID = 6,
+                        //RecipeID = 6,
                         RecipeCategory = "French",
                         RecipeName = "Light and Airy Cheese Soufflé",
                         RecipeCreator = "user1",
@@ -207,7 +207,7 @@ namespace RecipesApp.Models
                 context.Discussions.Add(
                     new Discussion
                     {
-                        DiscussionID = 1,
+                        //DiscussionID = 1,
                         DiscussionUser = "user2",
                         DiscussionPost = "This is the best apple pie I have ever had!",
                         DiscussionDate = DateTime.Now.ToString("HH:mm:ss tt")
