@@ -1,1 +1,12 @@
-﻿<h4>Welcome to Recipes Review</h4>
+﻿@model IQueryable<Recipe>
+@foreach (var p in Model ?? Enumerable.Empty<Recipe>())
+{
+	<div>
+		<h3>@p.RecipeCategory</h3>
+		<h4>@p.RecipeName</h4>
+		<h5>@p.RecipeCreator</h5>
+		<h5>@p.RecipeRating</h5>
+		<p>@p.RecipeIngredients</p>
+		<p>@p.RecipeInstructions</p>
+	</div>
+}

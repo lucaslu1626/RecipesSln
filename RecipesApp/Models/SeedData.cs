@@ -199,6 +199,7 @@ namespace RecipesApp.Models
                         "12. Serve the soufflé immediately while hot."
                     }
                     );
+                context.SaveChanges();
             }
 
             if(!context.Discussions.Any())
@@ -212,6 +213,7 @@ namespace RecipesApp.Models
                         DiscussionDate = DateTime.Now.ToString("HH:mm:ss tt")
                     }
                 );
+                context.SaveChanges();
             }
         }
     }
