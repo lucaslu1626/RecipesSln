@@ -6,7 +6,7 @@
         public string UserPW { get; set; } = string.Empty;
         public string UserName { get; set; } = string.Empty;
         public List<Recipe>? Recipes { get; set; }
-        public List<Discussion>? Discussions { get; set; }
+        //public List<Discussion>? Discussions { get; set; }
 
 
     }

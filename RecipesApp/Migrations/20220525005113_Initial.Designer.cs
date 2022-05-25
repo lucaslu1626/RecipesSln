@@ -11,7 +11,7 @@ using RecipesApp.Models;
 namespace RecipesApp.Migrations
 {
     [DbContext(typeof(StoreDbContext))]
-    [Migration("20220524205952_Initial")]
+    [Migration("20220525005113_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,13 +39,17 @@ namespace RecipesApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("DiscussionUser")
+                    b.Property<string>("DiscussionRecipe")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("DiscussionUser")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("DiscussionID");
 
-                    b.HasIndex("DiscussionUser");
+                    b.HasIndex("DiscussionRecipe");
 
                     b.ToTable("Discussions");
                 });
@@ -83,8 +87,6 @@ namespace RecipesApp.Migrations
 
                     b.HasKey("RecipeID");
 
-                    b.HasIndex("RecipeCreator");
-
                     b.ToTable("Recipes");
                 });
 
@@ -111,14 +113,14 @@ namespace RecipesApp.Migrations
 
             modelBuilder.Entity("RecipesApp.Models.Discussion", b =>
                 {
-                    b.HasOne("RecipesApp.Models.User", "User")
+                    b.HasOne("RecipesApp.Models.Recipe", "Recipe")
                         .WithMany("Discussions")
-                        .HasForeignKey("DiscussionUser")
-                        .HasPrincipalKey("UserName")
+                        .HasForeignKey("DiscussionRecipe")
+                        .HasPrincipalKey("RecipeCreator")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("User");
+                    b.Navigation("Recipe");
                 });
 
             modelBuilder.Entity("RecipesApp.Models.Recipe", b =>
@@ -133,10 +135,13 @@ namespace RecipesApp.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("RecipesApp.Models.User", b =>
+            modelBuilder.Entity("RecipesApp.Models.Recipe", b =>
                 {
                     b.Navigation("Discussions");
+                });
 
+            modelBuilder.Entity("RecipesApp.Models.User", b =>
+                {
                     b.Navigation("Recipes");
                 });
 #pragma warning restore 612, 618
