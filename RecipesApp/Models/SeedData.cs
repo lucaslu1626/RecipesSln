@@ -202,19 +202,20 @@ namespace RecipesApp.Models
                 context.SaveChanges();
             }
 
-            if(!context.Discussions.Any())
-            {
-                context.Discussions.Add(
-                    new Discussion
-                    {
+//            if(!context.Discussions.Any())
+//            {
+//                context.Discussions.Add(
+//                    new Discussion
+//                    {
                         //DiscussionID = 1,
-                        DiscussionUser = "user2",
-                        DiscussionPost = "This is the best apple pie I have ever had!",
-                        DiscussionDate = DateTime.Now.ToString("HH:mm:ss tt")
-                    }
-                );
-                context.SaveChanges();
-            }
+//                        DiscussionUser = "user2",
+//                        DiscussionPost = "This is the best apple pie I have ever had!",
+//                        DiscussionDate = DateTime.Now.ToString("HH:mm:ss tt"),
+//                        Recipe = 
+//                    }
+//                );
+//                context.SaveChanges();
+//            }
         }
     }
 }
