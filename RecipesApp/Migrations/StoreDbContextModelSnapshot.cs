@@ -39,15 +39,15 @@ namespace RecipesApp.Migrations
 
                     b.Property<string>("DiscussionRecipe")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("DiscussionUser")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("DiscussionID");
 
-                    b.HasIndex("DiscussionRecipe");
+                    b.HasIndex("DiscussionUser");
 
                     b.ToTable("Discussions");
                 });
@@ -85,6 +85,8 @@ namespace RecipesApp.Migrations
 
                     b.HasKey("RecipeID");
 
+                    b.HasIndex("RecipeCreator");
+
                     b.ToTable("Recipes");
                 });
 
@@ -111,14 +113,14 @@ namespace RecipesApp.Migrations
 
             modelBuilder.Entity("RecipesApp.Models.Discussion", b =>
                 {
-                    b.HasOne("RecipesApp.Models.Recipe", "Recipe")
+                    b.HasOne("RecipesApp.Models.User", "User")
                         .WithMany("Discussions")
-                        .HasForeignKey("DiscussionRecipe")
-                        .HasPrincipalKey("RecipeCreator")
+                        .HasForeignKey("DiscussionUser")
+                        .HasPrincipalKey("UserName")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Recipe");
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("RecipesApp.Models.Recipe", b =>
@@ -133,13 +135,10 @@ namespace RecipesApp.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("RecipesApp.Models.Recipe", b =>
-                {
-                    b.Navigation("Discussions");
-                });
-
             modelBuilder.Entity("RecipesApp.Models.User", b =>
                 {
+                    b.Navigation("Discussions");
+
                     b.Navigation("Recipes");
                 });
 #pragma warning restore 612, 618

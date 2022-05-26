@@ -24,6 +24,28 @@ namespace RecipesApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Discussions",
+                columns: table => new
+                {
+                    DiscussionID = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    DiscussionUser = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    DiscussionPost = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DiscussionDate = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DiscussionRecipe = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Discussions", x => x.DiscussionID);
+                    table.ForeignKey(
+                        name: "FK_Discussions_Users_DiscussionUser",
+                        column: x => x.DiscussionUser,
+                        principalTable: "Users",
+                        principalColumn: "UserName",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Recipes",
                 columns: table => new
                 {
@@ -39,7 +61,6 @@ namespace RecipesApp.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Recipes", x => x.RecipeID);
-                    table.UniqueConstraint("AK_Recipes_RecipeCreator", x => x.RecipeCreator);
                     table.ForeignKey(
                         name: "FK_Recipes_Users_RecipeCreator",
                         column: x => x.RecipeCreator,
@@ -48,32 +69,15 @@ namespace RecipesApp.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "Discussions",
-                columns: table => new
-                {
-                    DiscussionID = table.Column<long>(type: "bigint", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    DiscussionUser = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DiscussionPost = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DiscussionDate = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DiscussionRecipe = table.Column<string>(type: "nvarchar(450)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Discussions", x => x.DiscussionID);
-                    table.ForeignKey(
-                        name: "FK_Discussions_Recipes_DiscussionRecipe",
-                        column: x => x.DiscussionRecipe,
-                        principalTable: "Recipes",
-                        principalColumn: "RecipeCreator",
-                        onDelete: ReferentialAction.Cascade);
-                });
+            migrationBuilder.CreateIndex(
+                name: "IX_Discussions_DiscussionUser",
+                table: "Discussions",
+                column: "DiscussionUser");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Discussions_DiscussionRecipe",
-                table: "Discussions",
-                column: "DiscussionRecipe");
+                name: "IX_Recipes_RecipeCreator",
+                table: "Recipes",
+                column: "RecipeCreator");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
