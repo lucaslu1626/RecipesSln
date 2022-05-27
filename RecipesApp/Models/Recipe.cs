@@ -9,10 +9,8 @@ namespace RecipesApp.Models
         public string RecipeCreator { get; set; } = String.Empty;
         [Column(TypeName = "decimal(3, 1)")]
         public decimal RecipeRating { get; set; }
-        public string RecipeIngredients { get; set; } = String.Empty;
-       
+        public string RecipeIngredients { get; set; } = String.Empty;      
         public string RecipeInstructions { get; set; } = String.Empty;
-
         public User? User { get; set; }
         public List<Discussion>? Discussions { get; set; }
     }
