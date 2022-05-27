@@ -1,14 +1,40 @@
-﻿@model IQueryable<Recipe>
-@foreach (var p in Model ?? Enumerable.Empty<Recipe>())
+﻿@model RecipesListViewModel
+
+@foreach (var p in Model?.Recipes ?? Enumerable.Empty<Recipe>())
 {
-	<div>
-		<h3>@p.RecipeCategory</h3>
-		<h4>@p.RecipeName</h4>
-		<h5>@p.RecipeCreator</h5>
-		<h5>@p.RecipeRating</h5>
+	<div class="card card-outline-primary m-1 p-1">
+		<div class="bg-faded p-1">
+			<h4>
+				@p.RecipeCategory
+				@p.RecipeName
+				<span class="badge rounded-pill bg-primary text-white"
+				  style="float:right">
+					<small>@p.RecipeRating</small>
+				</span>
+				<span class="badge rounded-pill bg-primary text-white"
+				  style="float:right">
+					<small>@p.RecipeCreator</small>
+				</span>
+			</h4>
+		</div>
 		<h3>Ingredients</h3>
-		<p style="white-space: pre-line">@p.RecipeIngredients</p>
+		<div style="white-space: pre-line" class="card-text p-1">@p.RecipeIngredients</div>
 		<h3>Instructions</h3>
-        <p style="white-space: pre-line">@p.RecipeInstructions</p>
+		<div style="white-space: pre-line" class="card-text p-1">@p.RecipeInstructions</div>
 	</div>
+	@*<div>
+			<h3>Category : @p.RecipeCategory</h3>
+			<h4>Name: @p.RecipeName</h4>
+			<h5>Creator: @p.RecipeCreator</h5>
+			<h5>Rating: @p.RecipeRating</h5>
+			<h3>Ingredients</h3>
+			<p style="white-space: pre-line">@p.RecipeIngredients</p>
+			<h3>Instructions</h3>
+			<p style="white-space: pre-line">@p.RecipeInstructions</p>
+	</div>*@
 }
+
+	<div page-model="@Model?.PagingInfo" page-action="Index" page-classes-enabled="true"
+	page-class="btn" page-class-normal="btn-outline-dark"
+	page-class-selected="btn-primary" class="btn-group pull-right m-1">
+	</div>
