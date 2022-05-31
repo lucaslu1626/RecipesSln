@@ -5,5 +5,7 @@
         IQueryable<Recipe> Recipes { get; }
         IQueryable<Discussion> Discussions { get; }
         IQueryable<User> Users { get; }
+
+        void CreateRecipe(Recipe p);
     }
 }
