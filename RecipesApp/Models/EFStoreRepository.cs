@@ -16,5 +16,10 @@
             context.Recipes.Add(p);
             context.SaveChanges();
         }
+        public void CreateDiscussion(Discussion s)
+        {
+            context.Discussions.Add(s);
+            context.SaveChanges();
+        }
     }
 }

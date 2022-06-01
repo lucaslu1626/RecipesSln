@@ -19,7 +19,12 @@ var app = builder.Build();
 
 app.UseStaticFiles();
 
-app.MapControllerRoute("pagination", "Recipes/Page{recipePage}", new { Controller = "Home", action = "Index" });
+app.MapControllerRoute("catpage", "{category}/Page{recipePage:int}", new { Controller = "Home", action = "Index" });
+app.MapControllerRoute("page", "Page{recipePage:int}", new { Controller = "Home", action = "Index", recipePage = 1 });
+app.MapControllerRoute("category", "{category}", new { Controller = "Home", action = "Index", recipePage = 1 });
+app.MapControllerRoute("pagination", "Recipes/Page{recipePage}", new { Controller = "Home", action = "Index", recipePage = 1 });
+
+//app.MapControllerRoute("pagination", "Recipes/Page{recipePage}", new { Controller = "Home", action = "Index" });
 app.MapDefaultControllerRoute();
 app.MapRazorPages();
 app.MapBlazorHub();

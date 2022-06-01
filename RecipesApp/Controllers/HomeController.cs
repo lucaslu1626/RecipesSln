@@ -12,19 +12,24 @@ namespace RecipesApp.Controllers
         {
             repository = repo;
         }
-        public ViewResult Index(int recipePage = 1)
+        public ViewResult Index(string? category, int recipePage = 1)
             => View(new RecipesListViewModel
             {
                 Recipes = repository.Recipes
+                    .Where(p => category == null || p.RecipeCategory == category)
                     .OrderBy(p => p.RecipeID)
                     .Skip((recipePage - 1) * PageSize)
                     .Take(PageSize),
-                PagingInfo = new PagingInfo 
+                PagingInfo = new PagingInfo
                 {
                     CurrentPage = recipePage,
                     ItemsPerPage = PageSize,
-                    TotalItems = repository.Recipes.Count() 
-                }
+                    TotalItems = category == null
+                        ? repository.Recipes.Count()
+                        : repository.Recipes.Where(e =>
+                        e.RecipeCategory == category).Count()
+                },
+                CurrentCategory = category
             });
                 
     }
