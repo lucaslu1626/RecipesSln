@@ -12,7 +12,7 @@ namespace RecipesApp.Controllers
         {
             repository = repo;
         }
-        public ViewResult Index(string? category, int recipePage = 1)
+        public ViewResult Index(string? category, string? recipe, int recipePage = 1)
             => View(new RecipesListViewModel
             {
                 Recipes = repository.Recipes
@@ -20,6 +20,12 @@ namespace RecipesApp.Controllers
                     .OrderBy(p => p.RecipeID)
                     .Skip((recipePage - 1) * PageSize)
                     .Take(PageSize),
+                Discussions = repository.Discussions
+                    .Where(p => category == null || p.DiscussionRecipe == recipe)
+                    .OrderBy(p => p.DiscussionID)
+                    .Skip((recipePage - 1) * PageSize)
+                    .Take(PageSize),
+
                 PagingInfo = new PagingInfo
                 {
                     CurrentPage = recipePage,
@@ -29,7 +35,8 @@ namespace RecipesApp.Controllers
                         : repository.Recipes.Where(e =>
                         e.RecipeCategory == category).Count()
                 },
-                CurrentCategory = category
+                CurrentCategory = category,
+                CurrentRecipe = recipe
             });
                 
     }

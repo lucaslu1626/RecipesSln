@@ -16,10 +16,28 @@
             context.Recipes.Add(p);
             context.SaveChanges();
         }
+        public void DeleteRecipe(Recipe p)
+		{
+            context.Recipes.Remove(p);
+            context.SaveChanges();
+		}
+        public void SaveRecipe(Recipe p)
+		{
+            context.SaveChanges();
+		}
         public void CreateDiscussion(Discussion s)
         {
             context.Discussions.Add(s);
             context.SaveChanges();
         }
+        public void DeleteDiscussion(Discussion s)
+		{
+            context.Discussions.Remove(s);
+            context.SaveChanges();
+		}
+        public void SaveDiscussion(Discussion s)
+		{
+            context.SaveChanges();
+		}
     }
 }

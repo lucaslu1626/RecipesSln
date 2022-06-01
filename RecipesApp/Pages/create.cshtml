@@ -1,4 +1,4 @@
-﻿@page "/user/CreateRecipe"
+﻿@*@page "/user/CreateRecipe"
 @inherits OwningComponentBase<IStoreRepository>
 
 <EditForm Model="Product" OnValidSubmit="SaveProduct">
@@ -59,3 +59,4 @@
         NavManager?.NavigateTo("/user");
     }
 }
+*@
