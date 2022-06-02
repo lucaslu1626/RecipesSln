@@ -1,0 +1,12 @@
+﻿@model Recipe
+@{ Layout = "_SimpleLayout"; }
+
+<h5 class="bg-primary text-white text-center p-2">Create Recipe</h5>
+
+<form action="/controllers/form/submitform" method="post">
+	<div class="form-group">
+		<label>Recipe Name</label>
+		<input class="form-control" name="Recipe Name" value="@Model?.RecipeName" />
+	</div>
+	<button type="submit" class="btn btn-primary mt-2">Submit</button>
+</form>

@@ -25,6 +25,7 @@ app.MapControllerRoute("catpage", "{category}/Page{recipePage:int}", new { Contr
 app.MapControllerRoute("page", "Page{recipePage:int}", new { Controller = "Home", action = "Index", recipePage = 1 });
 app.MapControllerRoute("category", "{category}", new { Controller = "Home", action = "Index", recipePage = 1 });
 app.MapControllerRoute("pagination", "Recipes/Page{recipePage}", new { Controller = "Home", action = "Index", recipePage = 1 });
+app.MapControllerRoute("forms", "controllers/{controller=Home}/{action=Index}/{id?}");
 
 //app.MapControllerRoute("pagination", "Recipes/Page{recipePage}", new { Controller = "Home", action = "Index" });
 app.MapDefaultControllerRoute();
