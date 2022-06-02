@@ -204,14 +204,35 @@ namespace RecipesApp.Models
 
             if(!context.Discussions.Any())
             {
-                context.Discussions.Add(
+                context.Discussions.AddRange(
                     new Discussion
                     {
                        //DiscussionID = 1,
                         DiscussionUser = "user2",
                         DiscussionPost = "This is the best apple pie I have ever had!",
-                        DiscussionDate = DateTime.Now.ToString("HH:mm:ss:dtt"),
+                        DiscussionDate = DateTime.Now.ToString("MM/dd/yy H:mm:ss"),
                         DiscussionRecipe = "Golden Apple Pie"
+                    },
+                    new Discussion
+                    {
+                        DiscussionUser = "user1",
+                        DiscussionPost = "This looks similar to my grandma's secret recipe.",
+                        DiscussionDate = DateTime.Now.ToString("MM/dd/yy H:mm:ss"),
+                        DiscussionRecipe = "Golden Apple Pie"
+                    },
+                    new Discussion
+                    {
+                        DiscussionUser = "user1",
+                        DiscussionPost = "I can't wait to cook!",
+                        DiscussionDate = DateTime.Now.ToString("MM/dd/yy H:mm:ss"),
+                        DiscussionRecipe = "Ham and Cheese Sliders"
+                    },
+                    new Discussion
+                    {
+                        DiscussionUser = "user2",
+                        DiscussionPost = "Who can resist dumplings?",
+                        DiscussionDate = DateTime.Now.ToString("MM/dd/yy H:mm:ss"),
+                        DiscussionRecipe = "Pork Dumplings"
                     }
                );
                context.SaveChanges();

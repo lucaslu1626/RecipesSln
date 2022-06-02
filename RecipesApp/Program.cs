@@ -13,11 +13,13 @@ builder.Services.AddScoped<IStoreRepository, EFStoreRepository>();
 
 builder.Services.AddRazorPages();
 builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession();
 builder.Services.AddServerSideBlazor();
 
 var app = builder.Build();
 
 app.UseStaticFiles();
+app.UseSession();
 
 app.MapControllerRoute("catpage", "{category}/Page{recipePage:int}", new { Controller = "Home", action = "Index" });
 app.MapControllerRoute("page", "Page{recipePage:int}", new { Controller = "Home", action = "Index", recipePage = 1 });
