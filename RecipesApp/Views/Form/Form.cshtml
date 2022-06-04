@@ -3,10 +3,32 @@
 
 <h5 class="bg-primary text-white text-center p-2">Create Recipe</h5>
 
-<form action="/controllers/form/submitform" method="post">
+<form asp-action="submitform" method="post">
 	<div class="form-group">
 		<label>Recipe Name</label>
-		<input class="form-control" name="Recipe Name" value="@Model?.RecipeName" />
+		<input class="form-control" asp-for="RecipeName" name="name" />
+	</div>
+		<div class="form-group">
+		<label>Recipe Category</label>
+		<select class="form-control" asp-for="RecipeCategory" name="category">
+			<option value="American">American</option>
+			<option value="Mexican">Mexican</option>
+			<option value="Hawaiian">Hawaiian</option>
+			<option value="Chinese">Chinese</option>
+			<option value="Italian">Italian</option>
+		</select>
+	</div>
+	<div class="form-group">
+		<label>Recipe Creator</label>
+		<input class="form-control" asp-for="RecipeCreator" name="creator" />
+	</div>
+	<div class="form-group">
+		<label>Recipe Ingredients</label>
+		<textarea class="form-control" rows="10" asp-for="RecipeIngredients" name="ingredients"></textarea>
+	</div>
+	<div class="form-group">
+		<label>Recipe Instructions</label>
+		<textarea class="form-control" rows="10" asp-for="RecipeInstructions" name="instructions"></textarea>
 	</div>
 	<button type="submit" class="btn btn-primary mt-2">Submit</button>
 </form>
