@@ -22,9 +22,9 @@ namespace RecipesApp.Controllers
                     .Take(PageSize),
                 Discussions = repository.Discussions
                     .Where(p => category == null || p.DiscussionRecipe == recipe)
-                    .OrderBy(p => p.DiscussionID)
-                    .Skip((recipePage - 1) * PageSize)
-                    .Take(PageSize),
+                    .OrderBy(p => p.DiscussionID),
+                    /*.Skip((recipePage - 1) * PageSize)
+                    .Take(PageSize),*/
 
                 PagingInfo = new PagingInfo
                 {
