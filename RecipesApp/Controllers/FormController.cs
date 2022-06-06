@@ -20,6 +20,11 @@ namespace RecipesApp.Controllers
 			return View("Form");
 		}
 
+        public ActionResult Home()
+		{
+            return RedirectToAction(nameof(HomeController.Index), "Home");
+        }
+
 		[HttpPost]
         public IActionResult SubmitForm(string name, string category, string creator, string ingredients, string instructions)
         {
