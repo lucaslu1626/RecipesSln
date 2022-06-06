@@ -8,9 +8,12 @@ namespace RecipesApp.Controllers
     {
         private IStoreRepository repository;
         public int PageSize = 1;
+        //private StoreDbContext context;
+
         public HomeController(IStoreRepository repo)
         {
             repository = repo;
+            //context = dbContext;
         }
         public ViewResult Index(string? category, string? recipe, int recipePage = 1)
             => View(new RecipesListViewModel
@@ -21,7 +24,7 @@ namespace RecipesApp.Controllers
                     .Skip((recipePage - 1) * PageSize)
                     .Take(PageSize),
                 Discussions = repository.Discussions
-                    .Where(p => category == null || p.DiscussionRecipe == recipe)
+                    .Where(p => recipe == null || p.DiscussionRecipe == recipe)
                     .OrderBy(p => p.DiscussionID),
                     /*.Skip((recipePage - 1) * PageSize)
                     .Take(PageSize),*/
@@ -38,6 +41,44 @@ namespace RecipesApp.Controllers
                 CurrentCategory = category,
                 CurrentRecipe = recipe
             });
-                
+/*
+        [HttpPost]
+        public IActionResult SubmitForm(RecipesListViewModel model)
+        {
+            *//*model.Discussion.DiscussionDate = DateTime.Now.ToString("MM/dd/yy H:mm:ss");
+            model.Discussion.DiscussionUser = "user1";
+            model.Discussion.DiscussionRecipe = "Golden Apple Pie";*//*
+            try
+            {
+                //Discussion discussion = new Discussion();
+
+*//*                discussion.DiscussionDate = model.Discussion.DiscussionDate;
+                discussion.DiscussionPost = model.Discussion.DiscussionPost;
+                discussion.DiscussionUser = model.Discussion.DiscussionUser;
+                discussion.DiscussionRecipe = model.Discussion.DiscussionRecipe;*//*
+                context.Discussions.Add(new Discussion
+                {
+                    DiscussionDate = DateTime.Now.ToString("MM/dd/yy H:mm:ss"),
+                    DiscussionPost = model.Discussion.DiscussionPost,
+                    DiscussionRecipe = "Golden Apple Pie",
+                    DiscussionUser = "user1"
+                });
+                context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+
+            //return RedirectToAction("Index");
+            return RedirectToAction(nameof(Results));
+
+        }
+
+        public ActionResult Results()
+        {
+            return View("Index");
+        }*/
+
     }
 }

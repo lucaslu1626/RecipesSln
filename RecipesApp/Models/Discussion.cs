@@ -13,6 +13,7 @@ namespace RecipesApp.Models
 
         //public User? User { get; set; }
         public Recipe? Recipe { get; set; }
+        
 
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace RecipesApp.Models.ViewModels
+﻿using RecipesApp.Models;
+
+namespace RecipesApp.Models.ViewModels
 {
     public class RecipesListViewModel
     {
@@ -7,5 +9,6 @@
         public PagingInfo PagingInfo { get; set; } = new();
         public string? CurrentCategory { get; set; }
         public string? CurrentRecipe { get; set; }
+        public Discussion Discussion { get; set; } = new Discussion();
     }
 }
