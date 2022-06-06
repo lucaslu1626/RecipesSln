@@ -40,7 +40,16 @@ namespace RecipesApp.Controllers
                 RecipeIngredients = ingredients,
                 RecipeInstructions = instructions
             });
-            context.SaveChanges();
+            try
+            {
+                context.SaveChanges();
+            }
+            catch (DbUpdateException e)
+            {
+                Console.WriteLine(e.Message);
+                TempData["error"] = "Invalid Data entered.";
+                return View("Form");
+            }
             return RedirectToAction(nameof(Results));
         }
 

@@ -1,7 +1,11 @@
 ﻿@model Recipe
 @{ Layout = "_SimpleLayout"; }
+@{
+	var errorMessage = TempData["error"] ?? string.Empty;
+}
 
 <h5 class="bg-primary text-white text-center p-2">Create Recipe</h5>
+<h2 class="bi-credit-card text-center"><strong>@TempData["error"]</strong></h2>
 
 <form asp-action="submitform" method="post">
 	<div class="form-group">
