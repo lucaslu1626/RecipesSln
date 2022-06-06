@@ -1,0 +1,18 @@
+﻿@model Discussion
+@*@{Layout = "_Layout";}*@
+<form asp-action="submitform" method="post">
+	<div class="form-group">
+		<label for="comment">Add a comment</label>
+		<textarea class="form-control" rows="5" id="post" asp-for="DiscussionPost"></textarea>
+		<input type="hidden" class="form-control" id="recipe" value="Golden Apple Pie" asp-for="DiscussionRecipe">
+		<input type="hidden" class="form-control" id="user" value="user1" asp-for="DiscussionUser">
+		@{
+			var date = DateTime.Now.ToString("MM/dd/yy H:mm:ss");
+		}
+		<input type="hidden" class="form-control" id="date" value=@date asp-for="DiscussionDate">
+		<br>
+		<button type="submit" class="btn btn-default bg-warning">Submit</button>
+	</div>
+</form>
+<hr>
+
