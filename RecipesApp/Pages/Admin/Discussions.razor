@@ -1,0 +1,39 @@
+﻿@page "/admin/discussions"
+@inherits OwningComponentBase<IStoreRepository>
+
+<table class="table table-sm table-striped table-bordered">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>User</th>
+			<th>Date</th>
+			<th>Recipe</th>
+			<th>Post</th>
+		</tr>
+	</thead>
+	<tbody>
+		@if (AllDiscussions?.Count() > 0)
+		{
+			@foreach (Discussion p in AllDiscussions)
+			{
+				<tr>
+					<td>@p.DiscussionID</td>
+					<td>@p.DiscussionUser</td>
+					<td>@p.DiscussionDate</td>
+					<th>@p.DiscussionRecipe</th>
+					<th>@p.DiscussionPost</th>
+				</tr>
+			}
+		}
+		else
+		{
+			<tr><td colspan="5" class="text-center">No Discussions</td></tr>
+		}
+	</tbody>
+</table>
+
+@code {
+	public IStoreRepository Repository => Service;
+	public IEnumerable<Discussion> AllDiscussions { get; set; } = Enumerable.Empty<Discussion>();
+
+}

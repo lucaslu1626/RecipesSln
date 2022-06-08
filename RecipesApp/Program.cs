@@ -31,6 +31,7 @@ app.MapControllerRoute("forms", "controllers/{controller=Home}/{action=Index}/{i
 app.MapDefaultControllerRoute();
 app.MapRazorPages();
 app.MapBlazorHub();
+app.MapFallbackToPage("/admin/{*catchall}", "/Admin/Index");
 //app.MapFallback();
 
 SeedData.EnsurePopulated(app);
