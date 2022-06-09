@@ -29,13 +29,13 @@ namespace RecipesApp.Controllers
             {
                 DiscussionDate = DateTime.Now.ToString("MM/dd/yy H:mm:ss"),
                 DiscussionPost = model.Discussion.DiscussionPost,
-                DiscussionRecipe = model.CurrentRecipe,
+                // Adjust DiscussionRecipe to adjust based on the page the discussion post is submitted
+                DiscussionRecipe = "Black bean and corn Nachos",
                 DiscussionUser = "user1"
             };
-            repository.SaveDiscussion(discussion);
+            repository.CreateDiscussion(discussion);
             context.SaveChanges();
 
-            //return RedirectToAction("Index");
             return RedirectToAction(nameof(Results));
 
         }
