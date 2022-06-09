@@ -36,4 +36,12 @@
 	public IStoreRepository Repository => Service;
 	public IEnumerable<Discussion> AllDiscussions { get; set; } = Enumerable.Empty<Discussion>();
 
+	protected async override Task OnInitializedAsync()
+	{
+		await UpdateData();
+	}
+	public async Task UpdateData()
+	{
+		AllDiscussions = await Repository.Discussions.ToListAsync();
+	}
 }
