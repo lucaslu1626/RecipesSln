@@ -26,6 +26,7 @@
 	<div class="form-group">
 		@using (Html.BeginForm("SubmitForm", "Discussion", FormMethod.Post))
 		{
+			@Html.HiddenFor(model => model.CurrentRecipe, @p.RecipeName)
 			<label for="comment">Add a comment</label>
 			@Html.TextAreaFor(model => model.Discussion.DiscussionPost, new{@class = "form-control"})
 			@*<textarea class="form-control" rows="5" id="comment"></textarea>*@
