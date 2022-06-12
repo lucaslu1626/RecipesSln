@@ -17,7 +17,7 @@ else {
 {
 	<div class="card card-outline-primary m-1 p-1">
 		<div class="bg-faded p-1" onclick="location.href='@Url.Action("ViewRecipe", "Home", 
-		new{name = @p.RecipeName, creator = @p.RecipeCreator, ingredients = @p.RecipeIngredients, instructions = @p.RecipeInstructions})';" style="cursor: pointer;">
+		new{name = @p.RecipeName, creator = @p.RecipeCreator, ingredients = @p.RecipeIngredients, instructions = @p.RecipeInstructions, category = @p.RecipeCategory})';" style="cursor: pointer;">
 			<h4>
 				@p.RecipeName
 				<span class="badge rounded-pill bg-primary text-white"

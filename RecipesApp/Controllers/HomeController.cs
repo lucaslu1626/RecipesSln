@@ -16,7 +16,7 @@ namespace RecipesApp.Controllers
             context = dbContext;
         }
 
-        public ActionResult ViewRecipe(string name, string creator, string ingredients, string instructions)
+        public ActionResult ViewRecipe(string name, string creator, string ingredients, string instructions, string category)
         {
             if (name == null) return View("Index");
             else
@@ -25,7 +25,16 @@ namespace RecipesApp.Controllers
                 ViewBag.creator = creator;
                 ViewBag.ingredients = ingredients;
                 ViewBag.instructions = instructions;
-                return View("Recipe");
+
+                return View("Recipe", new RecipesListViewModel
+                {
+                    Recipes = repository.Recipes
+                    .Where(p => category == null || p.RecipeCategory == category)
+                    .OrderBy(p => p.RecipeID),
+                    Discussions = repository.Discussions
+                    .Where(p => name == null || p.DiscussionRecipe == name)
+                    .OrderBy(p => p.DiscussionID)
+                });
             }
         }
 
