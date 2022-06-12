@@ -197,6 +197,57 @@ namespace RecipesApp.Models
                         "10. Carefully and delicately fold this mixture back into the remaining whites until just combined.\n" +
                         "11. Divide between the prepared soufflé dishes, place in the oven, reduce the heat to 375 F, and bake 30 to 35 minutes depending on how well done you like your soufflés. A toothpick inserted in the middle should come out mostly clean, with no wet batter attached. Don’t open the oven within the first 20 minutes or the soufflés will deflate.\n" +
                         "12. Serve the soufflé immediately while hot."
+                    },
+                    new Recipe
+                    {
+                        RecipeCategory = "American",
+                        RecipeName = "Bacon Cheeseburger",
+                        RecipeCreator = "user1",
+                        RecipeRating = 3.0M,
+                        RecipeIngredients = 
+                        "3lbs. ground beef\n" +
+                        "1/3 cup heavy cream\n" +
+                        "6-8 dashes hot sauce\n" +
+                        "1 teaspoon salt\n" +
+                        "4 dashes Worcestershire sauce\n" +
+                        "1/2 teaspoon ground black pepper\n" +
+                        "6 kaiser rolls\n" +
+                        "softened butter for spreading, plus 2 tablespoons\n" +
+                        "6 slices cheddar\n" +
+                        "6 slices cooked bacon",
+                        RecipeInstructions =
+                        "1. Place the beef into a medium mixing bowl. Add the cream, hot sauce, Worcestershire, salt and pepper. With clean hands, mix the meat well. Set aside.\n" +
+                        "2. Next, slice the rolls in half and spread each half with some softened butter. Place the rolls face-down on a skillet over medium heat. Lightly grill the rolls so they're nice and golden. Let the rolls cool on a plate until you need them.\n" +
+                        "3. Heat a skillet over medium-high heat and add the butter. Form the beef mixture into 6 patties and place in the skillet, in batches if needed. Allow each to cook about 4 minutes on the first side, flip them and place a slice of Cheddar on to melt.\n" +
+                        "4. When the patties are done in the middle, place them on the base of the halved buns. Top each with 2 pieces of the bacon and top with the other half of the rolls."
+                    },
+                    new Recipe
+                    {
+                        RecipeCategory = "Chinese",
+                        RecipeName = "Easy Lo Mein",
+                        RecipeCreator = "user2",
+                        RecipeRating = 4.5M,
+                        RecipeIngredients =
+                        "8 ounces lo mein egg noodles\n" +
+                        "1 tablespoon olive oil\n" +
+                        "2 cloves garlic, minced\n" +
+                        "2 cups cremini mushrooms, sliced\n" +
+                        "1 red bell pepper, julienned\n" +
+                        "1 carrot, julienned\n" +
+                        "1/2 cup snow peas\n" +
+                        "3 cups baby spinach\n" +
+                        "For the Sauce:\n" +
+                        "2 tablespoons reduced sodium soy sauce, or more, to taste\n" +
+                        "2 teaspoons sugar\n" +
+                        "1 teaspoon sesame oil\n" +
+                        "1/2 teaspoon ground ginger\n" +
+                        "1/2 teaspoon Sriracha, or more, to taste\n",
+                        RecipeInstructions =
+                        "1. In a small bowl, whisk together soy sauce, sugar, sesame oil, ginger and Sriracha; set aside.\n" +
+                        "2. In a large pot of boiling water, cook noodles according to package instructions; drain well.\n" +
+                        "3. Heat olive oil in a large skillet or wok over medium high heat. Add garlic, mushrooms, bell pepper and carrot. Cook, stirring frequently, until tender, about 3-4 minutes. Stir in snow peas and spinach until the spinach has wilted, about 2-3 minutes.\n" +
+                        "4. Stir in egg noodles and soy sauce mixture, and gently toss to combine.\n" +
+                        "5. Serve immediately."
                     }
                     );
                 context.SaveChanges();
