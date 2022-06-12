@@ -15,7 +15,21 @@ namespace RecipesApp.Controllers
             repository = repo;
             context = dbContext;
         }
-        public ViewResult Index(string? category, string? recipe, int recipePage = 1)
+
+        public ActionResult ViewRecipe(string name, string creator, string ingredients, string instructions)
+        {
+            if (name == null) return View("Index");
+            else
+            {
+                ViewBag.Name = name;
+                ViewBag.creator = creator;
+                ViewBag.ingredients = ingredients;
+                ViewBag.instructions = instructions;
+                return View("Recipe");
+            }
+        }
+
+        public ViewResult Index(string? category, string? recipe, int recipePage = 10)
             => View(new RecipesListViewModel
             {
                 Recipes = repository.Recipes
@@ -26,9 +40,6 @@ namespace RecipesApp.Controllers
                 Discussions = repository.Discussions
                     .Where(p => recipe == null || p.DiscussionRecipe == recipe)
                     .OrderBy(p => p.DiscussionID),
-                /*.Skip((recipePage - 1) * PageSize)
-                .Take(PageSize),*/
-
 
                 PagingInfo = new PagingInfo
                 {

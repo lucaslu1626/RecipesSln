@@ -45,12 +45,10 @@ app.MapControllerRoute("category", "{category}", new { Controller = "Home", acti
 app.MapControllerRoute("pagination", "Recipes/Page{recipePage}", new { Controller = "Home", action = "Index", recipePage = 1 });
 app.MapControllerRoute("forms", "controllers/{controller=Home}/{action=Index}/{id?}");
 
-//app.MapControllerRoute("pagination", "Recipes/Page{recipePage}", new { Controller = "Home", action = "Index" });
 app.MapDefaultControllerRoute();
 app.MapRazorPages();
 app.MapBlazorHub();
 app.MapFallbackToPage("/admin/{*catchall}", "/Admin/Index");
-//app.MapFallback();
 
 SeedData.EnsurePopulated(app);
 IdentitySeedData.CreateAdminAccount(app.Services, app.Configuration);
