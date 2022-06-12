@@ -9,7 +9,7 @@ namespace RecipesApp.Models
         [Required(ErrorMessage = "Please enter your comment")]
         public string DiscussionPost { get; set; } = String.Empty;
         public string DiscussionDate { get; set; } = String.Empty;
-        public string DiscussionRecipe { get; set; } = String.Empty;
+        public string? DiscussionRecipe { get; set; } = String.Empty;
 
         //public User? User { get; set; }
         public Recipe? Recipe { get; set; }

@@ -26,8 +26,9 @@ namespace RecipesApp.Controllers
                 Discussions = repository.Discussions
                     .Where(p => recipe == null || p.DiscussionRecipe == recipe)
                     .OrderBy(p => p.DiscussionID),
-                    /*.Skip((recipePage - 1) * PageSize)
-                    .Take(PageSize),*/
+                /*.Skip((recipePage - 1) * PageSize)
+                .Take(PageSize),*/
+
 
                 PagingInfo = new PagingInfo
                 {
@@ -41,7 +42,7 @@ namespace RecipesApp.Controllers
                 CurrentCategory = category,
                 CurrentRecipe = recipe
             });
-
+/*
         [HttpPost]
         public IActionResult SubmitForm(RecipesListViewModel model)
         {
@@ -78,7 +79,7 @@ namespace RecipesApp.Controllers
         public ActionResult Results()
         {
             return View("Index");
-        }
+        }*/
 
     }
 }

@@ -25,11 +25,14 @@
 	<br>
 	<div class="form-group">
 		@using (Html.BeginForm("SubmitForm", "Discussion", FormMethod.Post))
-		{
+		{		
 			// TODO: Capture the Recipe Name and pass it to the formcontroller
 			<label for="comment">Add a comment</label>
+			//<input type="hidden" name="DiscussionRecipe" id="DiscussionRecipe" value="@p.RecipeName" />
+			
+			//@Html.Hidden("DiscussionRecipe", (object)ViewBag.DiscussionRecipe)
 			@Html.TextAreaFor(model => model.Discussion.DiscussionPost, new{@class = "form-control"})
-			@*<textarea class="form-control" rows="5" id="comment"></textarea>*@
+			@Html.HiddenFor(model => model.Discussion.DiscussionRecipe, @p.RecipeName)
 			<br>
 			<button type="submit" class="btn btn-default bg-warning">Submit</button>
 		}
