@@ -10,5 +10,6 @@ namespace RecipesApp.Models.ViewModels
         public string? CurrentCategory { get; set; }
         public string? CurrentRecipe { get; set; }
         public Discussion Discussion { get; set; } = new Discussion();
+        //public string ImagePath { get { return "~/Content/Image/Golden-Apple-Pie.jpg"; } }
     }
 }
